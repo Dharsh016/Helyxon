@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 10% 98%;
+    --foreground: 240 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 98% 39%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 4% 95%;
+    --muted-foreground: 240 3% 40%;
+
+    --accent: 340 82% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5% 90%;
+    --input: 240 5% 95%;
+    --ring: 262 83% 58%;
+
+    --radius: 1rem;
+
+    /* Mood Colors */
+    --mood-happy: 45 100% 51%;
+    --mood-calm: 200 98% 39%;
+    --mood-energetic: 340 82% 52%;
+    --mood-sad: 220 14% 46%;
+    --mood-anxious: 262 83% 58%;
+    --mood-creative: 280 85% 65%;
+    --mood-peaceful: 160 84% 39%;
+    --mood-excited: 14 100% 57%;
+
+    /* Gradients */
+    --gradient-happy: linear-gradient(135deg, hsl(45 100% 51%), hsl(14 100% 57%));
+    --gradient-calm: linear-gradient(135deg, hsl(200 98% 39%), hsl(160 84% 39%));
+    --gradient-energetic: linear-gradient(135deg, hsl(340 82% 52%), hsl(262 83% 58%));
+    --gradient-sad: linear-gradient(135deg, hsl(220 14% 46%), hsl(200 18% 26%));
+    --gradient-anxious: linear-gradient(135deg, hsl(262 83% 58%), hsl(280 85% 65%));
+    --gradient-creative: linear-gradient(135deg, hsl(280 85% 65%), hsl(340 82% 52%));
+    --gradient-peaceful: linear-gradient(135deg, hsl(160 84% 39%), hsl(200 98% 39%));
+    --gradient-excited: linear-gradient(135deg, hsl(14 100% 57%), hsl(340 82% 52%));
+
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --glass-blur: blur(8px);
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-lg rounded-2xl border;
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .mood-gradient {
+    transition: background 0.5s ease;
+  }
+
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pulse-slow {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  .particle {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 50%;
+    animation: particle-float 15s infinite linear;
+  }
+
+  @keyframes particle-float {
+    0% {
+      transform: translate(0, 100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.4;
+    }
+    90% {
+      opacity: 0.4;
+    }
+    100% {
+      transform: translate(100vw, -100vh) rotate(720deg);
+      opacity: 0;
+    }
+  }
+}
