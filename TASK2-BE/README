@@ -1,0 +1,6 @@
+# Task BE-103 – Flask App
+
+# Requirement
+- Create a Flask application with two endpoints:
+  - `/hello` → returns **"Hello, Interns!"**
+  - `/students` → returns a hardcoded JSON list of students
