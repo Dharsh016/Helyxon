@@ -1,3 +1,5 @@
+#Purpose to sort student by age
+
 import json
 students=[
     {'name':'dharsh','age':21},{'name':'sam','age':20},{'name':'tom','age':25}]
